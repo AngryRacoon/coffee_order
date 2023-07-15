@@ -2,10 +2,7 @@ package com.example.springdatabasicdemo.init;
 
 import com.example.springdatabasicdemo.dtos.GroupDto;
 import com.example.springdatabasicdemo.dtos.StudentDto;
-import com.example.springdatabasicdemo.models.Group;
-import com.example.springdatabasicdemo.models.Student;
 import com.example.springdatabasicdemo.services.StudentService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
