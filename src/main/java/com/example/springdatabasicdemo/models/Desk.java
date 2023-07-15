@@ -3,14 +3,11 @@ package com.example.springdatabasicdemo.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "Table")
-@Inheritance(strategy = InheritanceType.JOINED)
-public  class Table extends BaseEntity
+public  class Desk extends BaseEntity
 {
 
     @Column(name = "Seats", nullable = false)
@@ -19,13 +16,17 @@ public  class Table extends BaseEntity
     private String status;
     //тут связи будут
 
-    public Table(int seats, String status) {
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "desk")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private Set<OrderCoffee> orders;
+
+    public Desk(int seats, String status) {
         this.seats = seats;
         this.status = status;
     }
 
     // Пустой конструктор для Hibernate, обратите внимание на модификатор доступа
-    protected Table() {
+    protected Desk() {
 
     }
 

@@ -2,10 +2,8 @@ package com.example.springdatabasicdemo.services.impl;
 
 import com.example.springdatabasicdemo.dtos.GroupDto;
 import com.example.springdatabasicdemo.dtos.StudentDto;
-import com.example.springdatabasicdemo.models.Coffe;
-import com.example.springdatabasicdemo.models.Order_Coffe;
+import com.example.springdatabasicdemo.models.Coffee;
 import com.example.springdatabasicdemo.repositories.CoffeRepository;
-import com.example.springdatabasicdemo.repositories.Order_CoffeRepository;
 import com.example.springdatabasicdemo.services.StudentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +27,10 @@ public class StudentServiceImpl implements StudentService<Integer> {
 
     @Override
     public StudentDto register(StudentDto student) {
-        Order_Coffe s = modelMapper.map(student, Order_Coffe.class);
+        Order_Coffee s = modelMapper.map(student, Order_Coffee.class);
         if (student.getGroup().getId() != 0) {
-            Coffe g = coffeRepository.findById(student.getGroup().getId()).get();
-            s.setGroup(g);
+            Coffee g = coffeRepository.findById(student.getGroup().getId()).get();
+
         }
         return modelMapper.map(studentRepository.save(s), StudentDto.class);
     }
@@ -49,8 +47,8 @@ public class StudentServiceImpl implements StudentService<Integer> {
 
     @Override
     public void transfer(StudentDto student, GroupDto group) {
-        Order_Coffe s = studentRepository.findById(student.getId()).get();
-        Coffe g = coffeRepository.findById(group.getId()).get();
+        Order_Coffee s = studentRepository.findById(student.getId()).get();
+        Coffee g = coffeRepository.findById(group.getId()).get();
         s.setGroup(g);
         studentRepository.save(s);
     }

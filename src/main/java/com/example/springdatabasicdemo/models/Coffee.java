@@ -4,13 +4,11 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Coffe")
-@Inheritance(strategy = InheritanceType.JOINED)
-public  class Coffe extends BaseEntity
+@Table(name = "Coffee")
+public  class Coffee extends BaseEntity
 {
 
     @Column(name = "name", length = 30, nullable = false)
@@ -21,11 +19,11 @@ public  class Coffe extends BaseEntity
     private BigDecimal price;
     @Column(name = "ingredients",  nullable = false)
     private String ingredients;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "group")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "coffee")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private Set<Order_Coffe> students;
+    private Set<OrderCoffee> orders;
 
-    public Coffe(String name, String discription, BigDecimal price,String ingredients) {
+    public Coffee(String name, String discription, BigDecimal price,String ingredients) {
         this.name = name;
         this.discription = discription;
         this.price = price;
@@ -33,7 +31,7 @@ public  class Coffe extends BaseEntity
     }
 
     // Пустой конструктор для Hibernate, обратите внимание на модификатор доступа
-    protected Coffe(){
+    protected Coffee(){
 
     }
     //Геттеры
@@ -68,11 +66,11 @@ public  class Coffe extends BaseEntity
 
 
 /*
-    public Set<Order_Coffe> getStudents() {
+    public Set<Order_Coffee> getStudents() {
         return students;
     }
 
-    public void setStudents(Set<Order_Coffe> students) {
+    public void setStudents(Set<Order_Coffee> students) {
         this.students = students;
     }
 

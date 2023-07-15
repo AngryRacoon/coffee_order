@@ -3,26 +3,27 @@ package com.example.springdatabasicdemo.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "Customer")
-@Inheritance(strategy = InheritanceType.JOINED)
 public  class Customer extends BaseEntity
 {
 
     @Column(name = "Name", length = 32, nullable = false)
     private String name;
-    @Column(name = "PhoneNumber", length = 10, nullable = false)
+    @Column(name = "PhoneNumber", length = 12, nullable = false)
     private long phoneNumber;
-    @Column(name = "Bonus", length = 32, nullable = false)
-    private String bonus;
+    @Column(name = "Bonus")
+    private long bonus;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private Set<OrderCoffee> orders;
 
     //тут связи будут
 
-    public Customer(String name, long phoneNumber,String bonus) {
+    public Customer(String name, long phoneNumber,long bonus) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.bonus = bonus;
@@ -40,7 +41,7 @@ public  class Customer extends BaseEntity
     public long getPhoneNumber() {
         return phoneNumber;
     }
-    public String getBonus() {
+    public long getBonus() {
         return bonus;
     }
 
@@ -51,7 +52,7 @@ public  class Customer extends BaseEntity
     private void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    private void setBonus(String bonus) {
+    private void setBonus(long bonus) {
         this.bonus = bonus;
     }
 

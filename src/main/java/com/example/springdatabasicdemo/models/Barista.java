@@ -3,13 +3,11 @@ package com.example.springdatabasicdemo.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "Barista")
-@Inheritance(strategy = InheritanceType.JOINED)
+
 public  class Barista extends BaseEntity
 {
 
@@ -19,9 +17,14 @@ public  class Barista extends BaseEntity
     private int rating;
     @Column(name = "Salary", length = 32, nullable = false)
     private String salary;
-    @Column(name = "PhoneNumber", length = 10, nullable = false)
+    @Column(name = "PhoneNumber", length = 12, nullable = false)
     private long phone_number;
     //тут связи будут
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "barista")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private Set<OrderCoffee> orders;
+
+
 
     public Barista(String name, int rating,String salary, long phone_number) {
         this.name = name;
