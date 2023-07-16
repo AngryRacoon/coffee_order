@@ -1,25 +1,25 @@
 package com.example.springdatabasicdemo.services;
 
-import com.example.springdatabasicdemo.dtos.GroupDto;
-import com.example.springdatabasicdemo.dtos.StudentDto;
+import com.example.springdatabasicdemo.dtos.CoffeeDto;
+import com.example.springdatabasicdemo.dtos.OrderDto;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface StudentService<ID> {
 
-    StudentDto register(StudentDto student);
+    OrderDto register(OrderDto student);
 
-    void expel(StudentDto student);
+    void expel(OrderDto student);
 
     void expel(ID id);
 
-    void transfer(StudentDto student, GroupDto group);
+    void transfer(OrderDto student, CoffeeDto group);
 
-    Optional<StudentDto> findStudent(ID id);
+    Optional<OrderDto> findStudent(ID id);
 
-    List<StudentDto> getAll();
+    List<OrderDto> getAll();
 
-    List<StudentDto> findStudentsByGroup(String group);
+    List<OrderDto> findStudentsByGroup(String group);
 }
 

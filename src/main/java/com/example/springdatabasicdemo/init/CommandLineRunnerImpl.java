@@ -1,7 +1,7 @@
 package com.example.springdatabasicdemo.init;
 
-import com.example.springdatabasicdemo.dtos.GroupDto;
-import com.example.springdatabasicdemo.dtos.StudentDto;
+import com.example.springdatabasicdemo.dtos.CoffeeDto;
+import com.example.springdatabasicdemo.dtos.OrderDto;
 import com.example.springdatabasicdemo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -28,11 +28,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     private void seedData() throws IOException {
         //Добавление в БД записей
-        GroupDto g1 = new GroupDto(0,"UVP-211");
-        GroupDto g2 = new GroupDto(0,"UVP-212");
+        CoffeeDto g1 = new CoffeeDto(0,"UVP-211");
+        CoffeeDto g2 = new CoffeeDto(0,"UVP-212");
 
-        StudentDto s1 = new StudentDto(0, "Petr Ivanov", g1);
-        StudentDto s2 = new StudentDto(0, "Ivan Petrov", g2);
+        OrderDto s1 = new OrderDto(0, "Petr Ivanov", g1);
+        OrderDto s2 = new OrderDto(0, "Ivan Petrov", g2);
 
         s1 = studentService.register(s1);
         s2 = studentService.register(s2);

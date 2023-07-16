@@ -1,6 +1,6 @@
 package com.example.springdatabasicdemo.controllers;
 
-import com.example.springdatabasicdemo.dtos.StudentDto;
+import com.example.springdatabasicdemo.dtos.OrderDto;
 import com.example.springdatabasicdemo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,22 +12,25 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping("/students")
-    Iterable<StudentDto> all() {
+    Iterable<OrderDto> all() {
         return studentService.getAll();
     }
 
     @PostMapping("/students")
-    StudentDto newStudent(@RequestBody StudentDto newStudent) {  return studentService.register(newStudent); }
+    OrderDto newStudent(@RequestBody OrderDto newStudent)
+    {  return studentService.register(newStudent); }
 
     @GetMapping("/students/{id}")
-    StudentDto one(@PathVariable Integer id) throws Throwable {
+    OrderDto one(@PathVariable Integer id) throws Throwable
+    {
 
-        return (StudentDto) studentService.findStudent(id)
+        return (OrderDto) studentService.findStudent(id)
                 .orElseThrow(() -> new StudentNotFoundException(id));
     }
 
     @DeleteMapping("/students/{id}")
-    void deleteStudent(@PathVariable Integer id) {
+    void deleteStudent(@PathVariable Integer id)
+    {
         studentService.expel(id);
     }
 }
