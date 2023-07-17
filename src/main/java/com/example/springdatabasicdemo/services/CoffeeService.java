@@ -17,5 +17,5 @@ public interface CoffeeService<ID> {
         List<CoffeeDto> getAll();
 
 
-
+    CoffeeDto updateCoffee(Integer id, Optional<CoffeeDto> updatedCoffee);
 }

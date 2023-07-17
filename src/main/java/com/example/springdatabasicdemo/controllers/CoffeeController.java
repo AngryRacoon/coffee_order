@@ -1,11 +1,12 @@
 package com.example.springdatabasicdemo.controllers;
 
-
 import com.example.springdatabasicdemo.dtos.CoffeeDto;
 
 import com.example.springdatabasicdemo.services.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class CoffeeController {
@@ -31,6 +32,7 @@ public class CoffeeController {
     void deleteCoffee(@PathVariable Integer id) {
         coffeeService.expel(id);
     }
+
 
 
 }

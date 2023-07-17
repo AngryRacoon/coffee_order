@@ -52,5 +52,12 @@ public class CoffeeServiceImpl implements CoffeeService <Integer> {
         return coffeeRepository.findAll().stream().map((c) ->
                 modelMapper.map(c, CoffeeDto.class)).collect(Collectors.toList());
     }
+
+    @Override
+    public CoffeeDto updateCoffee(Integer id, Optional<CoffeeDto> updatedCoffee) {
+        return null;
+    }
+
+
 }
 

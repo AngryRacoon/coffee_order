@@ -1,5 +1,9 @@
 package com.example.springdatabasicdemo.dtos;
 
+import com.example.springdatabasicdemo.controllers.CoffeeNotFoundException;
+import com.example.springdatabasicdemo.repositories.CoffeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.math.BigDecimal;
 
 public class CoffeeDto {
