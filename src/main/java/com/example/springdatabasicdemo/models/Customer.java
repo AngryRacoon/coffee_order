@@ -19,7 +19,7 @@ public  class Customer extends BaseEntity
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private Set<OrderCoffee> orders;
+    private Set<Order> orders;
 
     //тут связи будут
 

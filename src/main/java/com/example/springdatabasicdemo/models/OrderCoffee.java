@@ -3,7 +3,7 @@ package com.example.springdatabasicdemo.models;
 import jakarta.persistence.*;
 
 @Entity
-class OrderCoffee {
+public class OrderCoffee {
 
     @EmbeddedId
     CoffeeOrderKey id;

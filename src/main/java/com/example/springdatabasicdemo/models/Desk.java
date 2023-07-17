@@ -6,7 +6,7 @@ import org.hibernate.annotations.Cascade;
 import java.util.Set;
 
 @Entity
-@Table(name = "Table")
+@Table(name = "Desk")
 public  class Desk extends BaseEntity
 {
 
@@ -18,7 +18,7 @@ public  class Desk extends BaseEntity
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "desk")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private Set<OrderCoffee> orders;
+    private Set<Order> orders;
 
     public Desk(int seats, String status) {
         this.seats = seats;
