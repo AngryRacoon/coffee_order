@@ -4,16 +4,18 @@ import com.example.springdatabasicdemo.models.Barista;
 import com.example.springdatabasicdemo.models.Customer;
 import com.example.springdatabasicdemo.models.Desk;
 
+import java.math.BigDecimal;
+
 public class BaristaDto {
 
     private int id;
     private String name;
     private int rating;
-    private String salary;
+    private BigDecimal salary;
     private long phone_number;
 
 
-    public BaristaDto(int id,String name, int rating,String salary, long phone_number) {
+    public BaristaDto(int id, String name, int rating, BigDecimal salary, long phone_number) {
         this.id = id;
         this.name = name;
         this.rating = rating;
@@ -34,7 +36,7 @@ public class BaristaDto {
     public int getRating() {
         return rating;
     }
-    public String getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
     public long getPhoneNumber() {
@@ -59,7 +61,7 @@ public class BaristaDto {
     private void setRating(int rating) {
         this.rating = rating;
     }
-    private void setSalary(String salary) {
+    private void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 

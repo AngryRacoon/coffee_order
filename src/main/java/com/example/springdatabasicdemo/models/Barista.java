@@ -3,6 +3,7 @@ package com.example.springdatabasicdemo.models;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ public  class Barista extends BaseEntity
     @Column(name = "Rating", length = 6, nullable = false)
     private int rating;
     @Column(name = "Salary", length = 32, nullable = false)
-    private String salary;
+    private BigDecimal salary;
     @Column(name = "PhoneNumber", length = 12, nullable = false)
     private long phone_number;
     //тут связи будут
@@ -26,7 +27,7 @@ public  class Barista extends BaseEntity
 
 
 
-    public Barista(String name, int rating,String salary, long phone_number) {
+    public Barista(String name, int rating,BigDecimal salary, long phone_number) {
         this.name = name;
         this.rating = rating;
         this.salary = salary;
@@ -45,7 +46,7 @@ public  class Barista extends BaseEntity
     public int getRating() {
         return rating;
     }
-    public String getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
     public long getPhoneNumber() {
@@ -62,7 +63,7 @@ public  class Barista extends BaseEntity
     private void setRating(int rating) {
         this.rating = rating;
     }
-    private void setSalary(String salary) {
+    private void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
 

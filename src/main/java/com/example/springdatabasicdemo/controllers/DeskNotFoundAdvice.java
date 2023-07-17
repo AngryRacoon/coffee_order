@@ -5,13 +5,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
 @ControllerAdvice
-public class BaristaNotFoundAdvice {
-    @ResponseBody
-    @ExceptionHandler(BaristaNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    String baristaNotFoundHandler(BaristaNotFoundException ex) {
-        return ex.getMessage();
-    }
+public class DeskNotFoundAdvice {   @ResponseBody
+@ExceptionHandler(DeskNotFoundException.class)
+@ResponseStatus(HttpStatus.NOT_FOUND)
+String deskNotFoundHandler(DeskNotFoundException ex) {
+    return ex.getMessage();
+}
+
 }

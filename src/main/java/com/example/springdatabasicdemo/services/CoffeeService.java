@@ -1,8 +1,6 @@
 package com.example.springdatabasicdemo.services;
 
 import com.example.springdatabasicdemo.dtos.CoffeeDto;
-import com.example.springdatabasicdemo.dtos.OrderDto;
-import com.example.springdatabasicdemo.models.Coffee;
 
 import java.util.List;
 import java.util.Optional;

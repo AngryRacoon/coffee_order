@@ -17,10 +17,10 @@ public class BaristaController {
     }
 
     @PostMapping("/barista")
-    BaristaDto newStudent(@RequestBody BaristaDto newStudent)
-    {  return baristaService.register(newStudent); }
+    BaristaDto newBarista(@RequestBody BaristaDto newBarista)
+    {  return baristaService.register(newBarista); }
 
-    @GetMapping("/students/{id}")
+    @GetMapping("/barista/{id}")
     OrderDto one(@PathVariable Integer id) throws Throwable
     {
 
