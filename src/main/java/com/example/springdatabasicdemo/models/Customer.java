@@ -14,8 +14,6 @@ public  class Customer extends BaseEntity
     private String name;
     @Column(name = "PhoneNumber", length = 12, nullable = false)
     private long phoneNumber;
-    @Column(name = "Bonus")
-    private long bonus;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
@@ -23,10 +21,10 @@ public  class Customer extends BaseEntity
 
     //тут связи будут
 
-    public Customer(String name, long phoneNumber,long bonus) {
+    public Customer(String name, long phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.bonus = bonus;
+
     }
 
     // Пустой конструктор для Hibernate, обратите внимание на модификатор доступа
@@ -41,9 +39,7 @@ public  class Customer extends BaseEntity
     public long getPhoneNumber() {
         return phoneNumber;
     }
-    public long getBonus() {
-        return bonus;
-    }
+
 
     //Сеттеры
     private void setName(String name) {
@@ -52,9 +48,7 @@ public  class Customer extends BaseEntity
     private void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    private void setBonus(long bonus) {
-        this.bonus = bonus;
-    }
+
 
 
 

@@ -27,4 +27,10 @@ public class CoffeeController {
         return (CoffeeDto) coffeeService.findCoffee(id)
                 .orElseThrow(() -> new CoffeeNotFoundException(id));
     }
+    @DeleteMapping("/coffees/{id}")
+    void deleteCoffee(@PathVariable Integer id) {
+        coffeeService.expel(id);
+    }
+
+
 }

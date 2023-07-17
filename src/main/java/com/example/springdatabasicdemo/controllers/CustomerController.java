@@ -29,4 +29,8 @@ public class CustomerController
         return (CustomerDto) customerService.findCustomer(id)
                 .orElseThrow(() -> new CustomerNotFoundException(id));
     }
+    @DeleteMapping("/customers/{id}")
+    void deleteCustomers(@PathVariable Integer id) {
+        customerService.expel(id);
+    }
 }

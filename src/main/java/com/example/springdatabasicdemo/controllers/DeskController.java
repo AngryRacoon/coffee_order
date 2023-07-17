@@ -24,4 +24,8 @@ public class DeskController {
         return (DeskDto) deskService.findDesk(id)
                 .orElseThrow(() -> new DeskNotFoundException(id));
     }
+    @DeleteMapping("/desks/{id}")
+    void deleteDesk(@PathVariable Integer id) {
+        deskService.expel(id);
+    }
 }

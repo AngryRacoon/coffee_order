@@ -27,4 +27,8 @@ public class BaristaController {
         return (OrderDto) baristaService.findBarista(id)
                 .orElseThrow(() -> new BaristaNotFoundException(id));
     }
+    @DeleteMapping("/baristas/{id}")
+    void deleteBarista(@PathVariable Integer id) {
+        baristaService.expel(id);
+    }
 }

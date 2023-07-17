@@ -10,14 +10,14 @@ public class CustomerDto {
     private String name;
 
     private long phoneNumber;
-    private long bonus;
 
 
-    public CustomerDto(int id,String name, long phoneNumber,long bonus) {
+
+    public CustomerDto(int id,String name, long phoneNumber) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.bonus = bonus;
+
     }
 
     public CustomerDto() {
@@ -33,9 +33,7 @@ public class CustomerDto {
     public long getPhoneNumber() {
         return phoneNumber;
     }
-    public long getBonus() {
-        return bonus;
-    }
+
 
     /*public CustomerDto getCoffee() {
         return coffee;
@@ -52,9 +50,7 @@ public class CustomerDto {
     private void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    private void setBonus(long bonus) {
-        this.bonus = bonus;
-    }
+
 
    /* public void setGroup(CustomerDto group) {
         this.group = group;

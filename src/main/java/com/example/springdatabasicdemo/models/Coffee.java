@@ -13,9 +13,9 @@ public  class Coffee extends BaseEntity
 
     @Column(name = "name", length = 30, nullable = false)
     private String name;
-    @Column(name = "discription", length = 50, nullable = false)
+    @Column(name = "discription",  nullable = false)
     private String discription;
-    @Column(name = "price", length = 50, nullable = false)
+    @Column(name = "price",  nullable = false)
     private BigDecimal price;
     @Column(name = "ingredients",  nullable = false)
     private String ingredients;
