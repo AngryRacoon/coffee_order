@@ -7,8 +7,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 public class OrderCoffeeDTO {
 
+    @JsonIgnore
     private Coffee coffee;
-
+    
     private Order order;
     private int count;
 

@@ -25,7 +25,7 @@ public  class Coffee extends BaseEntity
     private BigDecimal price;
     @Column(name = "ingredients",  nullable = false)
     private String ingredients;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "coffee")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "coffee")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<OrderCoffee> orders;
 

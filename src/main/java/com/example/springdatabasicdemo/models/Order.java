@@ -1,6 +1,5 @@
 package com.example.springdatabasicdemo.models;
 
-import com.example.springdatabasicdemo.dtos.OrderCoffeeDTO;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -26,6 +25,7 @@ public  class Order extends BaseEntity
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "desk_id", referencedColumnName = "id", nullable=false)
+
     private Desk desk;
 
 

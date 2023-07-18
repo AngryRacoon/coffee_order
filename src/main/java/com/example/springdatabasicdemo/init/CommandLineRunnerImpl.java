@@ -47,8 +47,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         d1 = deskService.register(d1);
 
         OrderDto o = new OrderDto(0, cs1, d1, b1, new Timestamp(System.currentTimeMillis()), "done",false );
+        OrderDto o1 = new OrderDto(0, cs1, d1, b1, new Timestamp(System.currentTimeMillis()), "in_progress",false );
         List<CoffeeDto> cf = new ArrayList<>();
         cf.add(c1);
         o = orderService.register(o,cf , 1);
+        o1 = orderService.register(o1,cf , 2);
     }
 }

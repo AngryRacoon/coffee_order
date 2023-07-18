@@ -2,9 +2,11 @@ package com.example.springdatabasicdemo.dtos;
 
 import com.example.springdatabasicdemo.controllers.CoffeeNotFoundException;
 import com.example.springdatabasicdemo.repositories.CoffeeRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 public class CoffeeDto {
     private Long id;
@@ -12,6 +14,7 @@ public class CoffeeDto {
     private String discription;
     private BigDecimal price;
     private String ingredients;
+
     public CoffeeDto(Long id, String name, String discription, BigDecimal price, String ingredients) {
         this.id = id;
         this.name = name;
@@ -61,6 +64,6 @@ public class CoffeeDto {
 
     @Override
     public String toString() {
-        return "Coffe { id=" + id + ", name=" + name + " }";
+        return "Coffee { id=" + id + ", name=" + name + " }";
     }
 }

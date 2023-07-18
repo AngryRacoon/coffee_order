@@ -3,6 +3,7 @@ package com.example.springdatabasicdemo.dtos;
 import com.example.springdatabasicdemo.models.Barista;
 import com.example.springdatabasicdemo.models.Customer;
 import com.example.springdatabasicdemo.models.Desk;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.criteria.CriteriaBuilder;
 
@@ -15,6 +16,7 @@ public class OrderDto {
     private CustomerDto customer;
     private BaristaDto barista;
     private DeskDto desk;
+
 
     private Set<OrderCoffeeDTO> coffees;
     private Timestamp timestamp;
@@ -73,9 +75,9 @@ public class OrderDto {
         return coffees;
     }
 
-    public void setCoffees(Set<OrderCoffeeDTO> coffees) {
-        this.coffees = coffees;
-    }
+    //public void setCoffees(Set<OrderCoffeeDTO> coffees) {
+      //  this.coffees = coffees;
+    //}
 
     public Timestamp getTimestamp() {
         return timestamp;
