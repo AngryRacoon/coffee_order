@@ -1,39 +1,43 @@
 package com.example.springdatabasicdemo.dtos;
 
 import com.example.springdatabasicdemo.models.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 public class OrderCoffeeDTO {
 
-    private Integer coffeeId;
-    private Integer orderId;
+    private Coffee coffee;
+
+    private Order order;
     private int count;
 
     public OrderCoffeeDTO() {
         // Default constructor
     }
 
-    public OrderCoffeeDTO(Integer coffeeId, Integer orderId, int count) {
-        this.coffeeId = coffeeId;
-        this.orderId = orderId;
+    public OrderCoffeeDTO(Coffee coffee, Order order, int count) {
+        this.coffee = coffee;
+        this.order = order;
         this.count = count;
     }
 
     // Getters and Setters
 
-    public Integer getCoffeeId() {
-        return coffeeId;
+    public Coffee getCoffee() {
+        return coffee;
     }
 
-    public void setCoffeeId(Integer coffeeId) {
-        this.coffeeId = coffeeId;
+    public void setCoffeeId(Coffee coffee) {
+        this.coffee = coffee;
     }
 
-    public Integer getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public int getCount() {

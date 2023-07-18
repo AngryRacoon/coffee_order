@@ -17,7 +17,7 @@ public  class Desk extends BaseEntity
     //тут связи будут
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "desk")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+
     private Set<Order> orders;
 
     public Desk(int seats, String status) {

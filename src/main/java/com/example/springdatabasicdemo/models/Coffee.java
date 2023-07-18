@@ -1,13 +1,19 @@
 package com.example.springdatabasicdemo.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "Coffee")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public  class Coffee extends BaseEntity
 {
 
@@ -19,20 +25,27 @@ public  class Coffee extends BaseEntity
     private BigDecimal price;
     @Column(name = "ingredients",  nullable = false)
     private String ingredients;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "coffee")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "coffee")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<OrderCoffee> orders;
 
-    public Coffee(String name, String discription, BigDecimal price,String ingredients) {
+    public Coffee(String name, String description, BigDecimal price,String ingredients) {
         this.name = name;
-        this.discription = discription;
+        this.discription = description;
         this.price = price;
         this.ingredients = ingredients;
+        this.orders = new HashSet<>();
     }
 
     // Пустой конструктор для Hibernate, обратите внимание на модификатор доступа
     protected Coffee(){
 
+    }
+    public Set<OrderCoffee> getOrders() {
+        return orders;
+    }
+    public void setOrders(Set<OrderCoffee> orders) {
+        this.orders = orders;
     }
     //Геттеры
     public String getName() {

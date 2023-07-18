@@ -1,5 +1,6 @@
 package com.example.springdatabasicdemo.services;
 
+import com.example.springdatabasicdemo.dtos.CoffeeDto;
 import com.example.springdatabasicdemo.dtos.OrderDto;
 
 import java.util.List;
@@ -7,8 +8,8 @@ import java.util.Optional;
 
 public interface OrderService<ID> {
 
-    OrderDto register(OrderDto order);
 
+    OrderDto register(OrderDto order, List<CoffeeDto> coffeesDto, Integer count);
 
     void expel(ID id);
 

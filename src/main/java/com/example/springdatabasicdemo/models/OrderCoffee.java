@@ -1,5 +1,8 @@
 package com.example.springdatabasicdemo.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 @Entity
@@ -37,7 +40,7 @@ public class OrderCoffee {
         return id;
     }
 
-    private void setId(CoffeeOrderKey id) {
+    public void setId(CoffeeOrderKey id) {
         this.id = id;
     }
 
@@ -45,7 +48,7 @@ public class OrderCoffee {
         return coffee;
     }
 
-    private void setCoffee(Coffee coffee) {
+    public void setCoffee(Coffee coffee) {
         this.coffee = coffee;
     }
 
@@ -53,7 +56,7 @@ public class OrderCoffee {
         return order;
     }
 
-    private void setOrder(Order order) {
+    public void setOrder(Order order) {
         this.order = order;
     }
 
@@ -61,7 +64,7 @@ public class OrderCoffee {
         return count;
     }
 
-    private void setCount(int count) {
+    public void setCount(int count) {
         this.count = count;
     }
 }

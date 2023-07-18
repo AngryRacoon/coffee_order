@@ -3,8 +3,10 @@ package com.example.springdatabasicdemo.dtos;
 import com.example.springdatabasicdemo.models.Barista;
 import com.example.springdatabasicdemo.models.Customer;
 import com.example.springdatabasicdemo.models.Desk;
+import com.example.springdatabasicdemo.models.Order;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 public class BaristaDto {
 
@@ -13,6 +15,7 @@ public class BaristaDto {
     private int rating;
     private BigDecimal salary;
     private long phone_number;
+    private Set<Order> orders;
 
 
     public BaristaDto(int id, String name, int rating, BigDecimal salary, long phone_number) {
@@ -21,6 +24,7 @@ public class BaristaDto {
         this.rating = rating;
         this.salary = salary;
         this.phone_number = phone_number;
+        this.orders = orders;
     }
 
     public BaristaDto() {

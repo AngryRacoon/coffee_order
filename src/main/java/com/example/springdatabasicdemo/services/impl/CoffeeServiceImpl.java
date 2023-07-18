@@ -32,8 +32,8 @@ public class CoffeeServiceImpl implements CoffeeService <Integer> {
     }
 
     @Override
-    public void expel(CoffeeDto customer) {
-        coffeeRepository.deleteById(customer.getId());
+    public void expel(CoffeeDto coffee) {
+        coffeeRepository.deleteById(Math.toIntExact(coffee.getId()));
     }
 
     @Override

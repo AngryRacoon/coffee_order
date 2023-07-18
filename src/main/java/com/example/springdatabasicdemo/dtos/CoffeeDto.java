@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.math.BigDecimal;
 
 public class CoffeeDto {
-    private int id;
+    private Long id;
     private String name;
     private String discription;
     private BigDecimal price;
     private String ingredients;
-    public CoffeeDto(int id, String name, String discription, BigDecimal price, String ingredients) {
+    public CoffeeDto(Long id, String name, String discription, BigDecimal price, String ingredients) {
         this.id = id;
         this.name = name;
         this.discription = discription;
@@ -24,7 +24,7 @@ public class CoffeeDto {
     {
     }
     //Геттеры
-    public int getId() {
+    public Long getId() {
         return id;
     }
     public String getName() {
@@ -46,7 +46,7 @@ public class CoffeeDto {
     public void setName(String name) {
         this.name = name;
     }
-      public void setId(int id) {
+      public void setId(Long id) {
         this.id = id;
     }
     private void setDiscription(String discription) {

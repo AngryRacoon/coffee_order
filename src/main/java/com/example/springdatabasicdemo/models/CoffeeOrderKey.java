@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-class CoffeeOrderKey implements Serializable {
+public class CoffeeOrderKey implements Serializable {
 
         @Column(name = "coffee_id")
         Long coffeeId;
@@ -17,6 +17,16 @@ class CoffeeOrderKey implements Serializable {
 
         // standard constructors, getters, and setters
         // hashcode and equals implementation
+
+        public CoffeeOrderKey() {
+                // Default constructor required by Hibernate
+        }
+
+        public CoffeeOrderKey(Long coffeeId, Long orderId) {
+                this.coffeeId = coffeeId;
+                this.orderId = orderId;
+        }
+
         public Long getCoffeeId() {
                 return coffeeId;
         }

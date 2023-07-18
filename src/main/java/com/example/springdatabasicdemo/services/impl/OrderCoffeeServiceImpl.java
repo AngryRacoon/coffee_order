@@ -28,7 +28,7 @@ public class OrderCoffeeServiceImpl implements OrderCoffeeService<Integer> {
     @Override
     public OrderCoffeeDTO getOrderCoffeeById(Integer coffeeId, Integer orderId) {
         for (OrderCoffeeDTO orderCoffee : orderCoffees) {
-            if (orderCoffee.getCoffeeId().equals(coffeeId) && orderCoffee.getOrderId().equals(orderId)) {
+            if (orderCoffee.getCoffee().equals(coffeeId) && orderCoffee.getOrder().equals(orderId)) {
                 return orderCoffee;
             }
         }
@@ -43,8 +43,8 @@ public class OrderCoffeeServiceImpl implements OrderCoffeeService<Integer> {
     @Override
     public void updateOrderCoffee(OrderCoffeeDTO orderCoffeeDTO) {
         for (OrderCoffeeDTO orderCoffee : orderCoffees) {
-            if (orderCoffee.getCoffeeId().equals(orderCoffeeDTO.getCoffeeId()) &&
-                    orderCoffee.getOrderId().equals(orderCoffeeDTO.getOrderId())) {
+            if (orderCoffee.getCoffee().equals(orderCoffeeDTO.getCoffee()) &&
+                    orderCoffee.getOrder().equals(orderCoffeeDTO.getOrder())) {
                 orderCoffee.setCount(orderCoffeeDTO.getCount());
                 break;
             }
@@ -53,7 +53,7 @@ public class OrderCoffeeServiceImpl implements OrderCoffeeService<Integer> {
 
     @Override
     public void expel(Integer coffeeId, Integer orderId) {
-        orderCoffees.removeIf(orderCoffee -> orderCoffee.getCoffeeId().equals(coffeeId) &&
-                orderCoffee.getOrderId().equals(orderId));
+        orderCoffees.removeIf(orderCoffee -> orderCoffee.getCoffee().equals(coffeeId) &&
+                orderCoffee.getOrder().equals(orderId));
     }
 }

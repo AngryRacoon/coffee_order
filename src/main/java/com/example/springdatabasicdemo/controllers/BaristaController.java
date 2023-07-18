@@ -21,10 +21,10 @@ public class BaristaController {
     {  return baristaService.register(newBarista); }
 
     @GetMapping("/barista/{id}")
-    OrderDto one(@PathVariable Integer id) throws Throwable
+    BaristaDto one(@PathVariable Integer id) throws Throwable
     {
 
-        return (OrderDto) baristaService.findBarista(id)
+        return (BaristaDto) baristaService.findBarista(id)
                 .orElseThrow(() -> new BaristaNotFoundException(id));
     }
     @DeleteMapping("/baristas/{id}")

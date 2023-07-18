@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -32,9 +33,9 @@ public  class Barista extends BaseEntity
         this.rating = rating;
         this.salary = salary;
         this.phone_number = phone_number;
+        this.orders = new HashSet<>();
     }
 
-    // Пустой конструктор для Hibernate, обратите внимание на модификатор доступа
     protected Barista() {
 
     }
@@ -52,6 +53,10 @@ public  class Barista extends BaseEntity
     public long getPhoneNumber() {
         return phone_number;
     }
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
 
     //Сеттеры
     private void setName(String name) {
@@ -65,6 +70,15 @@ public  class Barista extends BaseEntity
     }
     private void setSalary(BigDecimal salary) {
         this.salary = salary;
+    }
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+    public void removeOrder(Order order) {
+        orders.remove(order);
     }
 
 

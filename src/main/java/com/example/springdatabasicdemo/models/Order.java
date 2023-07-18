@@ -1,35 +1,38 @@
 package com.example.springdatabasicdemo.models;
 
+import com.example.springdatabasicdemo.dtos.OrderCoffeeDTO;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cascade;
 
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "Orders")
-@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public  class Order extends BaseEntity
 {
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable=false)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Customer customer;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "barista_id", referencedColumnName = "id", nullable=false)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Barista barista;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "desk_id", referencedColumnName = "id", nullable=false)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Desk desk;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
-    Set<OrderCoffee> coffees;
 
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    Set<OrderCoffee> coffees;
 
     @Column(name = "Timestamp", nullable = false)
     private java.sql.Timestamp timestamp;
@@ -40,7 +43,11 @@ public  class Order extends BaseEntity
     //тут связи будут
 
 
-    public Order(java.sql.Timestamp timestamp, String status, boolean type) {
+    public Order(Customer customer, Barista barista, Desk desk,  Timestamp timestamp, String status, boolean type) {
+        this.customer = customer;
+        this.barista = barista;
+        this.desk = desk;
+        this.coffees = new HashSet<>();
         this.timestamp = timestamp;
         this.status = status;
         this.type = type;
@@ -51,8 +58,17 @@ public  class Order extends BaseEntity
 
     }
 
+    public void setBarista(Barista barista) {
+        this.barista = barista;
+    }
+
+    public Set<OrderCoffee> getCoffees() {
+        return coffees;
+    }
+    private void setCoffees(Set<OrderCoffee>coffees){this.coffees = coffees;}
+
     //Геттеры
-    public java.sql.Timestamp getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
